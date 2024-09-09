@@ -1,11 +1,10 @@
 <templates>
   <t t-name="Root">
-    <div>hello owl</div>
     <div class="todo-app">
-      <input placeholder="Add a new task" t-on-keyup="addTask" t-ref="addnput"/>
+      <input placeholder="Enter a new task" t-on-keyup="addTask" t-ref="add-input"/>
       <div class="task-list">
-        <t t-foreach="state.tasks" t-as="task" t-key="task.id">
-          <Task task="task" onDelete.bind="deleteTask"/>
+        <t t-foreach="store.tasks" t-as="task" t-key="task.id">
+          <Task task="task"/>
         </t>
       </div>
     </div>
