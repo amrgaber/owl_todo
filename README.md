@@ -1,70 +1,68 @@
-# 🦉 owl-project-template 🦉
+# Owl Todo Project
 
-A starter template to create [owl](https://github.com/odoo/owl) projects using bun. This is only a toy (around 300 loc), not
-production ready!
+This is an Owl.js project built using Bun as the JavaScript runtime and bundler. It demonstrates a simple todo application using the Owl framework.
 
-## Setup
+## Project Overview
 
-To create a new project:
+- **Framework**: Owl.js
+- **Runtime & Bundler**: Bun
+- **Project Type**: Todo Application
 
-```bash
-bun create ged-odoo/owl-project-template [destination]
-cd [destination]
-bun dev # to start a dev server
-```
+## Prerequisites
 
-The following scripts are available:
+Before running this project, ensure you have the following installed:
+- [Bun](https://bun.sh/) (JavaScript runtime and toolkit)
 
-- `bun start`: build all static assets in `dist/` and start a server in production mode 
-- `bun dev` to start a dev server, loading all static assets in memory from `public/` (and with dev mode, autoreload and file watcher)
-- `bun run build` to build all static assets into `dist/` folder
+## How to Run
 
-## Features
+Follow these steps to set up and run the project:
 
-This project template provides the following features:
+1. **Install Dependencies**
+   In the project root directory, run:
+   ```
+   bun install
+   ```
+   This will install all necessary dependencies listed in `package.json`.
 
-- starting point for an owl application
-- all templates are collected from `src` and injected into the page
-- autoreload (in dev mode)
+2. **Build the Project**
+   Run the following command to build the project:
+   ```
+   bun run build
+   ```
+   This command compiles and bundles the application.
 
-## Project structure
+3. **Start the Development Server**
+   To run the project in development mode:
+   ```
+   bun run dev
+   ```
+   This starts a development server, typically at `http://localhost:3000`.
 
-- `main.js` is the main entry point. It checks for dev mode, and start the server accordingly
-- `core/` is meant to contain the code that organize the application (so, a framework). This means:
-  - managing assets
-  - a simple autoreload feature
-  - a basic http server
-- `public/` is the location for the owl application code (the browser code). Note that all xml files will be  
-  injected intothe main page (look at page source)
-  - `public/app.html` is the main page that will serve as index page.
-  - `public/app.js` is the main entry point for the owl application
+4. **Production Build and Start**
+   For a production-ready build and start:
+   ```
+   bun run start
+   ```
+   This command builds the project and starts the server.
 
-## Server
+## Project Structure
 
-The server located in `core` has the following routes:
+- `main.js`: Entry point of the application
+- `public/`: Contains static assets
+- `dist/`: Output directory for built files
+- `package.json`: Project configuration and dependencies
 
-- for route `/`, it reads `public/app.html` and inject templates, and autoreload code (in dev mode)
-- for route `/app.js`, it bundles all code in `public/` using `app.js` as the entry point
-- for route `/owl.js`, it returns the owl file from `node_modules`
-- other files are statically served from `public/` (in dev mode) or `dist/` (in prod mode)
+## Customization
 
-## Configuration
+- Modify components in the project's source files to change functionality
+- Update `package.json` for any configuration changes
 
-Here is the list of supported keys in `app_config` key in package.json:
+## Additional Resources
 
-- `port`: the port that the server will listen to
-- `public_path`: the (relative) folder containing all the static code for the application
-- `build_path`: the (relative) folder that will be used as target for the build process
-- `other_static_files`: a description of all additional static files available to the server.
-  For example:
-  ```json
-  {
-    "other_static_files": {
-      "milligram.css": "node_modules/milligram/dist/milligram.css"
-    }
-  }
-  ```
-- `inline_css` (default: false): if true, all css files in `public_path` will be concatenated and
-  injected in html page. Otherwise, a `<link href="app.css"/>` will be injected instead, and the `/app.css`
-  route will return the content of all css files
-- `inline_xml` (default: false): same as the css, but for all xml files
+For more information on Owl.js, visit:
+[Owl Documentation](https://github.com/odoo/owl/blob/master/doc/readme.md)
+
+For Bun documentation, refer to:
+[Bun Documentation](https://bun.sh/docs)
+
+Happy coding with Owl and Bun!
