@@ -1,5 +1,13 @@
 <templates>
   <t t-name="Root">
     <div>hello owl</div>
+    <div class="todo-app">
+      <input placeholder="Add a new task" t-on-keyup="addTask" t-ref="addnput"/>
+      <div class="task-list">
+        <t t-foreach="state.tasks" t-as="task" t-key="task.id">
+          <Task task="task" onDelete.bind="deleteTask"/>
+        </t>
+      </div>
+    </div>
   </t>
 </templates>
