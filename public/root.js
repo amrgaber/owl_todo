@@ -12,6 +12,19 @@ export class Root extends Component {
     const inputRef = useRef("add-input");
     onMounted(() => inputRef.el.focus());
     this.store = useStore();
+    this.filter = useState({ value: "all" });
+  }
+  get displayedTasks() {
+    const tasks = this.store.tasks;
+    switch (this.filter.value) {
+      case "active": return tasks.filter(t => !t.isCompleted);
+      case "completed": return tasks.filter(t => t.isCompleted);
+      case "all": return tasks;
+    }
+  }
+
+  setFilter(filter) {
+    this.filter.value = filter;
   }
 
   addTask(ev) {
