@@ -1,6 +1,8 @@
 <templates>
   <t t-name="Root">
     <div class="todo-app">
+      <MagicButton label="state.label" initialText="state.initialText" />
+      <Greeter name="state.word" items="state.items"/>
       <input placeholder="Enter a new task" t-on-keyup="addTask" t-ref="add-input"/>
       <div class="task-list">
         <t t-foreach="displayedTasks" t-as="task" t-key="task.id">

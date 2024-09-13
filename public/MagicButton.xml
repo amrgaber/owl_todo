@@ -1,0 +1,13 @@
+<templates>
+    <t t-name="MagicButton">
+        <div>
+            <div>
+                <t t-esc="props.label"/>
+            </div>
+            <button t-on-click="changeText">
+                <t t-esc="props.initialText"/>
+                <t t-esc="state.value"/>
+            </button>
+        </div>
+    </t>
+</templates>
