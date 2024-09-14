@@ -1,0 +1,10 @@
+<templates>
+    <t t-name="header">
+        <div class="o_auction_header d-flex col-12 bg-black w-full text-white">
+            <div class="col-2">
+                <img t-attf-src="./images/AUC.png" class="" loading="lazy" t-on-click="onClickLogo"/>
+            </div>
+            <Search />
+        </div>
+    </t>
+</templates>

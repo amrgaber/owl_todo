@@ -14,17 +14,21 @@
   "scripts": {
     "prestart": "bun run build",
     "start": "bun run main.js",
-    "dev": "bun run main.js --dev",
-    "build": "bun run core/cli.js --build"
+    "dev": "bun run main.js --dev --scss",
+    "build": "bun run core/cli.js --build",
+    "scss": "sass src/styles:public/css --watch"
   },
   "devDependencies": {
     "bun-types": "latest",
-    "chokidar": "^3.5.3"
+    "chokidar": "^3.5.3",
+    "sass": "^1.69.5"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@odoo/owl": "^2.3.0"
+    "@fortawesome/fontawesome-free": "^6.6.0",
+    "@odoo/owl": "^2.3.0",
+    "sass": "^1.69.5"
   }
 }

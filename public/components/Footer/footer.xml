@@ -1,0 +1,7 @@
+<templates>
+    <t t-name="Footer">
+        <div class="footer">
+            <Menu />
+        </div>
+    </t>
+</templates>
