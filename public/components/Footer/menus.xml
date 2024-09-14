@@ -1,6 +1,6 @@
 <templates>
     <t t-name="MenuItem">
-        <li t-ref="menuItem" t-on-menu-changed="onActivateMenu">
+        <li t-ref="menuItem">
             <a href="#" t-on-click.prevent="onActivateMenu" t-att-data-name="props.name">
                 <span class="icon">
                     <i t-attf-class="fa fa-solid {{props.iconClass}}" />
@@ -11,7 +11,7 @@
     </t>
 
     <t t-name="Menu">
-        <div class="navigation d-flex justify-content-center ms-1">
+        <div class="navigation d-flex justify-content-center ms-1" t-on-menu-changed="onMenuChanged">
             <ul class="pt-1 p-3">
                 <MenuItem active="state.activeMenuItem === 'all' and true or false " iconClass="state.iconClass" name="state.name" string="state.string"/>
                 <MenuItem active="state.activeMenuItem === 'live' and true or false" iconClass="'fa-hourglass-half'" name="'live'" string="'Live'"/>

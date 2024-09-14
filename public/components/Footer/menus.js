@@ -7,7 +7,9 @@ export class MenuItem extends Component {
     }
     onActivateMenu(ev) {
         const menuName = ev.currentTarget.getAttribute('data-name');
-        console.log(menuName);
+        const customEvent = new CustomEvent("menu-changed", { bubbles: true, detail: { activeMenuItem: menuName } });
+        this.menuItemRef.el.dispatchEvent(customEvent);
+        console.log(menuName, customEvent);
     }
     // we can use below way in case i need to pass value to the function 
     // doStuff(ev, value) {
@@ -26,5 +28,7 @@ export class Menu extends Component {
     }
     static template = "Menu";
     static components = { MenuItem };
-
+    onMenuChanged(ev) {
+        console.log('test onMenuChanged', ev.detail.activeMenuItem);
+    }
 }
