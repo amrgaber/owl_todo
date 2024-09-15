@@ -10,25 +10,19 @@ export class MenuItem extends Component {
         const customEvent = new CustomEvent("menu-changed", { bubbles: true, detail: { activeMenuItem: menuName } });
         this.menuItemRef.el.dispatchEvent(customEvent);
         console.log(menuName, customEvent);
+        this.env.bus.trigger('change_active_menu', { activeMenuItem: menuName });
     }
-    // we can use below way in case i need to pass value to the function 
-    // doStuff(ev, value) {
-    //     console.log(ev, value);
-    // }
 }
 
 export class Menu extends Component {
-    setup() {
-        this.state = useState({
-            activeMenuItem: 'all',
-            iconClass: 'fa-home',
-            name: 'all',
-            string: 'All'
-        })
-    }
     static template = "Menu";
     static components = { MenuItem };
+    setup() {
+        this.state = useState({ activeMenuItem: this.props.activeMenuItem })
+        console.log('test state', this.state.activeMenuItem);
+    }
     onMenuChanged(ev) {
+        this.state.activeMenuItem = ev.detail.activeMenuItem;
         console.log('test onMenuChanged', ev.detail.activeMenuItem);
     }
 }

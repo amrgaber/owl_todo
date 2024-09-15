@@ -1,9 +1,14 @@
 // In this example, we show how components can be defined and created.
-import { mount } from "@odoo/owl";
+import { mount, EventBus } from "@odoo/owl";
 import { Root } from "./root";
 
+const bus = new EventBus();
+const env = {
+  bus,
+}
 const templates = await FETCH_TEMPLATES();
 mount(Root, document.body, {
   templates,
-  dev: DEV,// injected by server
+  dev: DEV,
+  env// injected by server
 });

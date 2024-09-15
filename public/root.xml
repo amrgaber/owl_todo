@@ -6,7 +6,7 @@
         <main>
         </main>
       </div>
-      <Footer />
+      <Footer activeMenuItem="mainScreenPropsFielded"/>
     </div>
   </t>
 </templates>
