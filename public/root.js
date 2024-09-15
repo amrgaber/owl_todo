@@ -2,9 +2,15 @@ import { Component, useEnv, EventBus, useState } from "@odoo/owl";
 import { Header } from "./components/Header/header";
 import { Footer } from "./components/Footer/footer";
 
+import { ProductListContainer } from "./components";
+
 export class Root extends Component {
   setup() {
-    this.mainScreen = useState({ props: {} });
+    this.mainScreen = useState({
+      name: 'ProductListContainer',
+      component: ProductListContainer,
+      props: {}
+    });
     const env = useEnv();
     console.log('env.bus', env.bus);
     env.bus.addEventListener('change_active_menu', this.onChangeScreen.bind(this));

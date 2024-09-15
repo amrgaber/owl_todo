@@ -4,6 +4,7 @@
       <Header />
       <div class="o_container">
         <main>
+          <t t-component="mainScreen.component" t-props="mainScreen.props" t-key="mainScreen.name"/>
         </main>
       </div>
       <Footer activeMenuItem="mainScreenPropsFielded"/>

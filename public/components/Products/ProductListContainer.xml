@@ -1,0 +1,8 @@
+<templates>
+    <t t-name="ProductListContainer">
+        <div class="row">
+            <ProductCategorySidebar categories="state.categories" />
+            <h1>Hi From Product List Container</h1>
+        </div>
+    </t>
+</templates>
